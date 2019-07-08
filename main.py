@@ -26,10 +26,13 @@ def bestFromDict(dictionary):
 def bestOutOfN(args):
     separator = ";"
     if len(args) < 3:
+        print(Errors.not_enough_args.value)
         return Errors.not_enough_args.value
     elif not args[1].isdigit() or not int(args[1]) > 0:
+        print(Errors.first_arg_not_int.value)
         return Errors.first_arg_not_int.value
     elif not separator in args[2]:
+        print(Errors.missing_separator.value)
         return Errors.missing_separator.value
     n = int(args[1])
     choices = createDictFromChoices(args[2])
@@ -40,7 +43,7 @@ def bestOutOfN(args):
             selected_key = random.choice(choices.keys())
             choices[selected_key]+=1
         res = bestFromDict(choices)
-    print("\nBEST CHOICE: "+res+" \nTOTAL COUNT: "+str(choices[res])+"\n")
+    print("\nBEST CHOICE:\t"+res+" \nTOTAL COUNT:\t"+str(choices[res])+"\nDISTRIBUTED:\t"+str(choices)+"\n")
     return res
 
 def createDictFromChoices(joineditems):
