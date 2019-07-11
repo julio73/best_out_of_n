@@ -119,6 +119,7 @@ class TestBestOutOfN(unittest.TestCase):
         res = bestOutOfN(["", "5", "a"+Utils.separator.value+"d"])
         self.assertNotIn(res, ["aa", "b", "c"])
 
+# unittest.main()
+
 if __name__ == "__main__":
-    # unittest.main()
     bestOutOfN(sys.argv)
