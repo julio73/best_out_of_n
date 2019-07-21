@@ -10,6 +10,8 @@ class TestBestOutOfN(unittest.TestCase):
 
     def setUp(self):
         self.my_boon_app = MyApp()
+        if sys.argv and len(sys.argv) > 1 and sys.argv[1] in ("1","0"):
+            self.my_boon_app.DISPLAY_ON = sys.argv[1] == "1"
 
     def test_create_dict_from_choices(self):
         res = createDictFromChoices(str(Utils.separator.value).join(["",""]))
@@ -74,4 +76,4 @@ class TestBestOutOfN(unittest.TestCase):
         self.assertNotIn(res, ["aa", "b", "c"])
 
 if __name__ == "__main__":
-    unittest.main()
+    unittest.main(argv=sys.argv[1:])
