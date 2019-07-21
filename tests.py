@@ -1,7 +1,7 @@
 import sys
 import unittest
 
-from main import *
+from main import (MyApp, bestFromDict, createDictFromChoices)
 from utils import Utils
 from errors import Errors 
 
