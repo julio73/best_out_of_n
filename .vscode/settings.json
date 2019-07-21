@@ -1,0 +1,8 @@
+{
+    "cSpell.words": [
+        "isdigit"
+    ],
+    "files.exclude": {
+        "**/*.pyc": true
+    }
+}
