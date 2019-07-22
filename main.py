@@ -53,9 +53,9 @@ class MyApp:
             Utils.displayHandler(
                 ("\n"
                 "BEST CHOICE:    {0}\n"
-                "TOTAL COUNT:    {1}\n"
-                "DISTRIBUTED:    {2}\n"
-                ).format(res, str(choices[res]), str(choices)),
+                "TOTAL SCORE:    {1}/{2}\n"
+                "DISTRIBUTED:    {3}\n"
+                ).format(res, str(choices[res]), n, str(choices)),
                 self.DISPLAY_ON
             )
 
