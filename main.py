@@ -3,6 +3,9 @@ import random
 from utils import Utils
 from errors import Errors
 
+import multiprocessing as mp
+from functools import reduce
+
 def createDictFromChoices(joineditems):
     dc = {}
     if not len(joineditems):
@@ -46,9 +49,15 @@ class MyApp:
         if len(choices) <= 1:
             res = bestFromDict(choices)
         else:
-            for __ in range(n):
-                selected_key = random.choice(choices.keys())
-                choices[selected_key]+=1
+            pool = mp.Pool(mp.cpu_count())
+            results = [pool.apply(
+                    incrementCountForChoice,
+                    args=(choices, random.choice(choices.keys()))
+                ) for __ in range(n)]
+            pool.close()
+            
+            choices = reduce(countTally, results)
+            
             res = bestFromDict(choices)
             Utils.displayHandler(
                 ("\n"
@@ -61,7 +70,14 @@ class MyApp:
 
         return res
 
+def incrementCountForChoice(choice_dict, key):
+    choice_dict[key]+=1
+    return choice_dict
 
+def countTally(tally, current):
+    for k in current:
+        tally[k]+=current[k]
+    return tally
 
 if __name__ == "__main__":
     ma = MyApp()
