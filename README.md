@@ -13,6 +13,8 @@ Launch program with number of iterations and the semi-colon separated options. L
 
 This bias yet accurate result is not guaranteed.
 
+Besides the terminal command, you can also run this as a task in your VS Code workspace or environment using the tasks under the `.vscode/tasks.json` file. Modify the arguments or anything to suit your decision needs.
+
 License
 ------
 Let them know I send my regards.

@@ -4,7 +4,8 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "main",
+            "label": "What's the best out of ...?",
+            "detail": "Choose a number of iterations and specify your choices",
             "type": "shell",
             "command": "python",
             "args": [
@@ -12,13 +13,14 @@
                 "${input:n}",
                 "\"${input:choices}\""
             ],
+            "problemMatcher": [],
             "group": {
-                "kind": "build",
+                "kind": "run",
                 "isDefault": true
             },
         },
         {
-            "label": "test",
+            "label": "test best_out_of_n",
             "type": "shell",
             "command": "python",
             "args": [
